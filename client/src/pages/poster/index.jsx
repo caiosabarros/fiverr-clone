@@ -10,7 +10,7 @@ function Index() {
   const router = useRouter();
   const [dashboardData, setDashboardData] = useState(undefined);
   useEffect(() => {
-    const getBuyerDashboardData = async () => {
+    const getPosterDashboardData = async () => {
       const response = await axios.get(GET_SELLER_DASHBOARD_DATA, {
         withCredentials: true,
       });
@@ -20,7 +20,7 @@ function Index() {
       console.log({ response });
     };
     if (userInfo) {
-      getBuyerDashboardData();
+      getPosterDashboardData();
     }
   }, [userInfo]);
   return (
@@ -61,7 +61,7 @@ function Index() {
             <div className="grid grid-cols-3 gap-10 w-full">
               <div
                 className="shadow-md h-max p-10 flex flex-col gap-2 cursor-pointer hover:shadow-xl transition-all duration-300"
-                onClick={() => router.push("/seller/gigs")}
+                onClick={() => router.push("/poster/gigs")}
               >
                 <h2 className="text-xl">Total Gigs</h2>
                 <h3 className="text-[#1DBF73] text-3xl font-extrabold">
@@ -70,7 +70,7 @@ function Index() {
               </div>
               <div
                 className="shadow-md h-max p-10 flex flex-col gap-2 cursor-pointer hover:shadow-xl transition-all duration-300"
-                onClick={() => router.push("/seller/orders")}
+                onClick={() => router.push("/poster/orders")}
               >
                 <h2 className="text-xl">Total Orders</h2>
                 <h3 className="text-[#1DBF73] text-3xl font-extrabold">
@@ -79,7 +79,7 @@ function Index() {
               </div>
               <div
                 className="shadow-md h-max p-10 flex flex-col gap-2 cursor-pointer hover:shadow-xl transition-all duration-300"
-                onClick={() => router.push("/seller/unread-messages")}
+                onClick={() => router.push("/poster/unread-messages")}
               >
                 <h2 className="text-xl"> Unread Messages</h2>
                 <h3 className="text-[#1DBF73] text-3xl font-extrabold">

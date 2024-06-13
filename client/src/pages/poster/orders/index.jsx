@@ -37,6 +37,9 @@ function Orders() {
                 Category
               </th>
               <th scope="col" className="px-6 py-3">
+                Status
+              </th>
+              <th scope="col" className="px-6 py-3">
                 Price
               </th>
               <th scope="col" className="px-6 py-3">
@@ -76,7 +79,7 @@ function Orders() {
 
                   <td className="px-6 py-4 ">
                     <Link
-                      href={`/seller/orders/messages/${order.id}`}
+                      href={`/poster/orders/messages/${order.id}`}
                       className="font-medium text-blue-600  hover:underline"
                     >
                       Send

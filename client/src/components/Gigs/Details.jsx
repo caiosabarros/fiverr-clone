@@ -61,11 +61,10 @@ function Details() {
                 {[1, 2, 3, 4, 5].map((star) => (
                   <FaStar
                     key={star}
-                    className={`cursor-pointer ${
-                      Math.ceil(averageRatings) >= star
-                        ? "text-yellow-400"
-                        : "text-gray-300"
-                    }`}
+                    className={`cursor-pointer ${Math.ceil(averageRatings) >= star
+                      ? "text-yellow-400"
+                      : "text-gray-300"
+                      }`}
                   />
                 ))}
               </div>
@@ -93,9 +92,8 @@ function Details() {
                     width={100}
                     key={image}
                     onClick={() => setCurrentImage(image)}
-                    className={`${
-                      currentImage === image ? "" : "blur-sm"
-                    } cursor-pointer transition-all duration-500`}
+                    className={`${currentImage === image ? "" : "blur-sm"
+                      } cursor-pointer transition-all duration-500`}
                   />
                 ))}
             </div>
@@ -111,7 +109,7 @@ function Details() {
           {/* About the seller */}
           <div className="">
             <h3 className="text-3xl my-5 font-medium text-[#404145]">
-              About the Seller
+              About the Poster
             </h3>
             <div className="flex gap-4">
               <div>
@@ -148,11 +146,10 @@ function Details() {
                     {[1, 2, 3, 4, 5].map((star) => (
                       <FaStar
                         key={star}
-                        className={`cursor-pointer ${
-                          Math.ceil(gigData.averageRating) >= star
-                            ? "text-yellow-400"
-                            : "text-gray-300"
-                        }`}
+                        className={`cursor-pointer ${Math.ceil(gigData.averageRating) >= star
+                          ? "text-yellow-400"
+                          : "text-gray-300"
+                          }`}
                       />
                     ))}
                   </div>

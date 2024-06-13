@@ -77,7 +77,7 @@ function Footer() {
         { name: "Affiliates", link: "#" },
         { name: "Podcast", link: "#" },
         { name: "Invite a Friend", link: "#" },
-        { name: "Become a Seller", link: "#" },
+        { name: "Become a Poster", link: "#" },
         { name: "Community Standards", link: "#" },
       ],
     },

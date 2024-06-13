@@ -43,7 +43,7 @@ function Pricing() {
             {gigData.userId === userInfo.id ? (
               <button
                 className="flex items-center bg-[#1DBF73] text-white py-2 justify-center font-bold text-lg relative rounded"
-                onClick={() => router.push(`/seller/gigs/${gigData.id}`)}
+                onClick={() => router.push(`/poster/gigs/${gigData.id}`)}
               >
                 <span>Edit</span>
                 <BiRightArrowAlt className="text-2xl absolute right-4" />

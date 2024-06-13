@@ -14,8 +14,8 @@ export default function App({ Component, pageProps }) {
   const [cookies] = useCookies();
   useEffect(() => {
     if (
-      router.pathname.includes("/seller") ||
-      router.pathname.includes("/buyer")
+      router.pathname.includes("/poster") ||
+      router.pathname.includes("/tasker")
     ) {
       if (!cookies.jwt) {
         router.push("/");

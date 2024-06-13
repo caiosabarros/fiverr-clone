@@ -33,4 +33,4 @@ export const ADD_MESSAGE = `${MESSAGES_ROUTES}/add-message`;
 export const GET_UNREAD_MESSAGES = `${MESSAGES_ROUTES}/unread-messages`;
 export const MARK_AS_READ_ROUTE = `${MESSAGES_ROUTES}/mark-as-read`;
 
-export const GET_SELLER_DASHBOARD_DATA = `${DASHBOARD_DATA_ROUTES}/seller`;
+export const GET_SELLER_DASHBOARD_DATA = `${DASHBOARD_DATA_ROUTES}/poster`;

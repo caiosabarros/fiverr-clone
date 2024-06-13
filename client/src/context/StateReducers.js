@@ -4,7 +4,7 @@ export const initialState = {
   userInfo: undefined,
   showLoginModal: false,
   showSignupModal: false,
-  isSeller: false,
+  isPoster: false,
   gigData: undefined,
   hasOrdered: false,
   reloadReviews: false,
@@ -36,7 +36,7 @@ const reducer = (state, action) => {
     case reducerCases.SWITCH_MODE:
       return {
         ...state,
-        isSeller: !state.isSeller,
+        isPoster: !state.isPoster,
       };
     case reducerCases.SET_GIG_DATA:
       return {

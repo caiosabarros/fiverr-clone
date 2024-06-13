@@ -22,6 +22,7 @@ function Profile() {
     userName: "",
     fullName: "",
     description: "",
+    portfolio: "",
   });
 
   useEffect(() => {
@@ -213,6 +214,19 @@ function Profile() {
                 onChange={handleChange}
                 className={inputClassName}
                 placeholder="description"
+              ></textarea>
+            </div>
+            <div className="flex flex-col w-[500px]">
+              <label className={labelClassName} htmlFor="portfolio">
+                Portfolio
+              </label>
+              <textarea
+                name="portfolio"
+                id="portfolio"
+                value={data.portfolio}
+                onChange={handleChange}
+                className={inputClassName}
+                placeholder="https://myportfolio-link.com"
               ></textarea>
             </div>
             <button

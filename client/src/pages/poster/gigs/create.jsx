@@ -1,19 +1,17 @@
 import ImageUpload from "../../../components/ImageUpload";
 import { categories } from "../../../utils/categories";
-import { EDIT_GIG_DATA, GET_GIG_DATA } from "../../../utils/constants";
+import { ADD_GIG_ROUTE } from "../../../utils/constants";
 import axios from "axios";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useCookies } from "react-cookie";
 
-function EditGig() {
+function CreateGigs() {
   const [cookies] = useCookies();
   const router = useRouter();
-  const { gigId } = router.query;
   const inputClassName =
     "block p-4 w-full text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50  focus:ring-blue-500 focus:border-blue-500";
-  const labelClassName =
-    "mb-2 text-lg font-medium text-gray-900  dark:text-white";
+  const labelClassName = "mb-2 text-lg font-medium text-gray-900  ";
   const [files, setFile] = useState([]);
   const [features, setfeatures] = useState([]);
   const [data, setData] = useState({
@@ -42,38 +40,9 @@ function EditGig() {
       setData({ ...data, feature: "" });
     }
   };
-
-  useEffect(() => {
-    const fetchGigData = async () => {
-      try {
-        const {
-          data: { gig },
-        } = await axios.get(`${GET_GIG_DATA}/${gigId}`);
-
-        setData({ ...gig, time: gig.revisions });
-        setfeatures(gig.features);
-
-        gig.images.forEach((image) => {
-          const url = "http://localhost:8747/uploads/" + image;
-          const fileName = image;
-          fetch(url).then(async (response) => {
-            const contentType = response.headers.get("content-type");
-            const blob = await response.blob();
-            const files = new File([blob], fileName, { contentType });
-            setFile([files]);
-          });
-        });
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    if (gigId) fetchGigData();
-  }, [gigId]);
-
-  const editGig = async () => {
+  const addGig = async () => {
     const { category, description, price, revisions, time, title, shortDesc } =
       data;
-
     if (
       category &&
       description &&
@@ -97,28 +66,24 @@ function EditGig() {
         time,
         shortDesc,
       };
-      const response = await axios.put(
-        `${EDIT_GIG_DATA}/${data.id}`,
-        formData,
-        {
-          withCredentials: true,
-          headers: {
-            "Content-Type": "multipart/form-data",
-            Authorization: `Bearer ${cookies.jwt}`,
-          },
-          params: gigData,
-        }
-      );
+      const response = await axios.post(ADD_GIG_ROUTE, formData, {
+        withCredentials: true,
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${cookies.jwt}`,
+        },
+        params: gigData,
+      });
       if (response.status === 201) {
-        router.push("/seller/gigs");
+        router.push("/poster/gigs");
       }
     }
   };
   return (
-    <div className="min-h-[80vh] my-10 mt-0 px-32">
-      <h1 className="text-6xl text-gray-900 mb-5">Edit Gig</h1>
+    <div className="min-h-[80vh] my-10 mt-0 px-32 ">
+      <h1 className="text-6xl text-gray-900 mb-5">Create a new Gig</h1>
       <h3 className="text-3xl text-gray-900 mb-5">
-        Enter the details to edit the gig
+        Enter the details to create the gig
       </h3>
       <form action="" className="flex flex-col gap-5 mt-10">
         <div className="grid grid-cols-2 gap-11">
@@ -146,7 +111,7 @@ function EditGig() {
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4"
               name="category"
               onChange={handleChange}
-              value={data.category}
+              defaultValue="Choose a Category"
             >
               {categories.map(({ name }) => (
                 <option key={name} value={name}>
@@ -282,9 +247,9 @@ function EditGig() {
           <button
             className="border   text-lg font-semibold px-5 py-3   border-[#1DBF73] bg-[#1DBF73] text-white rounded-md"
             type="button"
-            onClick={editGig}
+            onClick={addGig}
           >
-            Edit
+            Create
           </button>
         </div>
       </form>
@@ -292,4 +257,4 @@ function EditGig() {
   );
 }
 
-export default EditGig;
+export default CreateGigs;

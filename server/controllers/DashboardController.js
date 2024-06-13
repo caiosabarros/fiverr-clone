@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 
-export const getSellerData = async (req, res, next) => {
+export const getPosterData = async (req, res, next) => {
   try {
     if (req.userId) {
       const prisma = new PrismaClient();

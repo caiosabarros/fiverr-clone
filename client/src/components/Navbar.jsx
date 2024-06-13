@@ -17,7 +17,7 @@ function Navbar() {
   const [navFixed, setNavFixed] = useState(false);
   const [searchData, setSearchData] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
-  const [{ showLoginModal, showSignupModal, isSeller, userInfo }, dispatch] =
+  const [{ showLoginModal, showSignupModal, isPoster, userInfo }, dispatch] =
     useStateProvider();
 
   const handleLogin = () => {
@@ -50,7 +50,7 @@ function Navbar() {
     { linkName: "Executor Business", handler: "#", type: "link" },
     { linkName: "Explore", handler: "#", type: "link" },
     { linkName: "English", handler: "#", type: "link" },
-    { linkName: "Become a Seller", handler: "#", type: "link" },
+    { linkName: "Become a Poster", handler: "#", type: "link" },
     { linkName: "Sign in", handler: handleLogin, type: "button" },
     { linkName: "Join", handler: handleSignup, type: "button2" },
   ];
@@ -68,17 +68,17 @@ function Navbar() {
   }, [router.pathname]);
 
   const handleOrdersNavigate = () => {
-    if (isSeller) router.push("/seller/orders");
-    router.push("/buyer/orders");
+    if (isPoster) router.push("/poster/orders");
+    router.push("/tasker/orders");
   };
 
   const handleModeSwitch = () => {
-    if (isSeller) {
+    if (isPoster) {
       dispatch({ type: reducerCases.SWITCH_MODE });
-      router.push("/buyer/orders");
+      router.push("/tasker/orders");
     } else {
       dispatch({ type: reducerCases.SWITCH_MODE });
-      router.push("/seller");
+      router.push("/poster");
     }
   };
 
@@ -166,8 +166,8 @@ function Navbar() {
       {isLoaded && (
         <nav
           className={`w-full px-24 flex justify-between items-center py-6  top-0 z-30 transition-all duration-300 ${navFixed || userInfo
-              ? "fixed bg-white border-b border-gray-200"
-              : "absolute bg-transparent border-transparent"
+            ? "fixed bg-white border-b border-gray-200"
+            : "absolute bg-transparent border-transparent"
             }`}
         >
           <div>
@@ -215,8 +215,8 @@ function Navbar() {
                       <button
                         onClick={handler}
                         className={`border   text-md font-semibold py-1 px-3 rounded-sm ${navFixed
-                            ? "border-[#1DBF73] text-[#1DBF73]"
-                            : "border-white text-white"
+                          ? "border-[#1DBF73] text-[#1DBF73]"
+                          : "border-white text-white"
                           } hover:bg-[#1DBF73] hover:text-white hover:border-[#1DBF73] transition-all duration-500`}
                       >
                         {linkName}
@@ -228,12 +228,12 @@ function Navbar() {
             </ul>
           ) : (
             <ul className="flex gap-10 items-center">
-              {isSeller && (
+              {isPoster && (
                 <li
                   className="cursor-pointer text-[#1DBF73] font-medium"
-                  onClick={() => router.push("/seller/gigs/create")}
+                  onClick={() => router.push("/poster/gigs/create")}
                 >
-                  Create Gig
+                  Post Task
                 </li>
               )}
               <li
@@ -243,19 +243,19 @@ function Navbar() {
                 Orders
               </li>
 
-              {isSeller ? (
+              {isPoster ? (
                 <li
                   className="cursor-pointer font-medium"
                   onClick={handleModeSwitch}
                 >
-                  Switch To Buyer
+                  Switch To Tasker
                 </li>
               ) : (
                 <li
                   className="cursor-pointer font-medium"
                   onClick={handleModeSwitch}
                 >
-                  Switch To Seller
+                  Switch To Poster
                 </li>
               )}
               <li

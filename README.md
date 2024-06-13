@@ -1,6 +1,19 @@
+## Documentation
+
+Sellers are Posters.
+Gigs are Tasks.
+Orders are Orders.
+Buyers are Taskers.
+
+## TODO
+1. Change nomeclature in all code.
+2. Add Status to Order, meaning an Order will be a negotiation.
+3. Beautify logo.
+4. Plan according to self-reliance [manual](https://www.churchofjesuschrist.org/study/manual/starting-and-growing-my-business-for-self-reliance?lang=por).
+
 ## Config
 
-- It seems it uses v19.0.0
+- it uses node v19.0.0
 
 ## Usage
 
@@ -46,4 +59,3 @@ To start a web viewer for the database, do:
 ```shell
 $ npx prisma studio
 ```
-

@@ -55,7 +55,7 @@ export const confirmOrder = async (req, res, next) => {
   }
 };
 
-export const getBuyerOrders = async (req, res, next) => {
+export const getTaskerOrders = async (req, res, next) => {
   try {
     if (req.userId) {
       const prisma = new PrismaClient();
@@ -72,7 +72,7 @@ export const getBuyerOrders = async (req, res, next) => {
   }
 };
 
-export const getSellerOrders = async (req, res, next) => {
+export const getPosterOrders = async (req, res, next) => {
   try {
     if (req.userId) {
       const prisma = new PrismaClient();

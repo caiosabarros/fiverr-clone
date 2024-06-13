@@ -19,6 +19,7 @@ model User {
   fullName String?
   description String?
   profileImage String?
+  portfolio String?
   isProfileInfoSet Boolean? @default(false)
   createdAt DateTime @default(now())
   gigs Gigs[]

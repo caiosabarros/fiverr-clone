@@ -47,7 +47,7 @@ function Navbar() {
   };
 
   const links = [
-    { linkName: "Fiverr Business", handler: "#", type: "link" },
+    { linkName: "Executor Business", handler: "#", type: "link" },
     { linkName: "Explore", handler: "#", type: "link" },
     { linkName: "English", handler: "#", type: "link" },
     { linkName: "Become a Seller", handler: "#", type: "link" },
@@ -165,11 +165,10 @@ function Navbar() {
     <>
       {isLoaded && (
         <nav
-          className={`w-full px-24 flex justify-between items-center py-6  top-0 z-30 transition-all duration-300 ${
-            navFixed || userInfo
+          className={`w-full px-24 flex justify-between items-center py-6  top-0 z-30 transition-all duration-300 ${navFixed || userInfo
               ? "fixed bg-white border-b border-gray-200"
               : "absolute bg-transparent border-transparent"
-          }`}
+            }`}
         >
           <div>
             <Link href="/">
@@ -179,9 +178,8 @@ function Navbar() {
             </Link>
           </div>
           <div
-            className={`flex ${
-              navFixed || userInfo ? "opacity-100" : "opacity-0"
-            }`}
+            className={`flex ${navFixed || userInfo ? "opacity-100" : "opacity-0"
+              }`}
           >
             <input
               type="text"
@@ -206,9 +204,8 @@ function Navbar() {
                 return (
                   <li
                     key={linkName}
-                    className={`${
-                      navFixed ? "text-black" : "text-white"
-                    } font-medium`}
+                    className={`${navFixed ? "text-black" : "text-white"
+                      } font-medium`}
                   >
                     {type === "link" && <Link href={handler}>{linkName}</Link>}
                     {type === "button" && (
@@ -217,11 +214,10 @@ function Navbar() {
                     {type === "button2" && (
                       <button
                         onClick={handler}
-                        className={`border   text-md font-semibold py-1 px-3 rounded-sm ${
-                          navFixed
+                        className={`border   text-md font-semibold py-1 px-3 rounded-sm ${navFixed
                             ? "border-[#1DBF73] text-[#1DBF73]"
                             : "border-white text-white"
-                        } hover:bg-[#1DBF73] hover:text-white hover:border-[#1DBF73] transition-all duration-500`}
+                          } hover:bg-[#1DBF73] hover:text-white hover:border-[#1DBF73] transition-all duration-500`}
                       >
                         {linkName}
                       </button>

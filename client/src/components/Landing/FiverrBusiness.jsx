@@ -38,7 +38,7 @@ function FiverrBusiness() {
           className="border text-base font-medium px-5 py-2   border-[#1DBF73] bg-[#1DBF73] text-white rounded-md"
           type="button"
         >
-          Explore Fiverr Business
+          Explore Executor Business
         </button>
       </div>
       <div className="relative h-[512px] w-2/3">

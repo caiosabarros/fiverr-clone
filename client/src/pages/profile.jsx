@@ -115,7 +115,7 @@ function Profile() {
               <span className="text-red-600 font-bold">{errorMessage}</span>
             </div>
           )}
-          <h2 className="text-3xl">Welocme to Fiverr Clone</h2>
+          <h2 className="text-3xl">Welocme to Executor Clone</h2>
           <h4 className="text-xl">
             Please complete your profile to get started
           </h4>
@@ -142,9 +142,8 @@ function Profile() {
                   </span>
                 )}
                 <div
-                  className={`absolute bg-slate-400 h-full w-full rounded-full flex items-center justify-center   transition-all duration-100  ${
-                    imageHover ? "opacity-100" : "opacity-0"
-                  }`}
+                  className={`absolute bg-slate-400 h-full w-full rounded-full flex items-center justify-center   transition-all duration-100  ${imageHover ? "opacity-100" : "opacity-0"
+                    }`}
                 >
                   <span
                     className={` flex items-center justify-center  relative`}

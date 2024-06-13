@@ -27,14 +27,13 @@ export default function App({ Component, pageProps }) {
     <StateProvider initialState={initialState} reducer={reducer}>
       <Head>
         <link rel="shortcut icon" href="/favicon.ico" />
-        <title>Fiverr Clone</title>
+        <title>Executor Clone</title>
       </Head>
       <div className="relative flex flex-col h-screen justify-between">
         <Navbar />
         <div
-          className={`${
-            router.pathname !== "/" ? "mt-36" : ""
-          } mb-auto w-full mx-auto`}
+          className={`${router.pathname !== "/" ? "mt-36" : ""
+            } mb-auto w-full mx-auto`}
         >
           <Component {...pageProps} />
         </div>
